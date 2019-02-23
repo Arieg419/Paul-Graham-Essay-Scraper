@@ -35,14 +35,20 @@ for f in fonts:
     title = anchor_string[ts + 1:te + 1]
     url = base_url + anchor_string[us + 2:ue - 1]
     articles[title] = url
-# pp.pprint(articles)
 
 for k, v in articles.items():
     r  = requests.get(v)
     data = r.text
     soup = BeautifulSoup(data, "html.parser")
-    fonts = soup.find_all('font')
-    for f in fonts:
-        article = open(k.replace(" ", "").replace("/", "") + ".html","w+")
+    tables = soup.find_all('table')
+    if len(tables) < 2: # weird layout
+        continue
+    curr_table = tables[1]
+    article = open(k.replace(" ", "").replace("/", "") + ".html","w+")
+    try:
         article.write(str(f))
-        time.sleep(4)
+        article.close()
+    except Exception as e:
+        print("Something went wrong...")
+        print(type(e))
+        print(str(e))
