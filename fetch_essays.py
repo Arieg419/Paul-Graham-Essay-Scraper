@@ -7,11 +7,6 @@ import sys
 import pprint
 import time
 
-# Setup
-if sys.version_info[0] < 3:
-    raise Exception("Must be using Python 3")
-pp = pprint.PrettyPrinter(indent=4)
-
 
 def find_nth_occurrence(text, sub, n):
     if n == 1:
@@ -20,6 +15,7 @@ def find_nth_occurrence(text, sub, n):
     return find_nth_occurrence(text[start + 1:], sub, n - 1)
 
 
+pp = pprint.PrettyPrinter(indent=4)
 base_url = "http://www.paulgraham.com/"
 r = requests.get("http://www.paulgraham.com/articles.html")
 data = r.text
