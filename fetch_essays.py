@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 import requests
 import sys
 import pprint
+import time
 
 # Setup
 if sys.version_info[0] < 3:
@@ -43,5 +44,5 @@ for k, v in articles.items():
     fonts = soup.find_all('font')
     for f in fonts:
         article = open(k.replace(" ", "").replace("/", "") + ".html","w+")
-        # article.write(str(f))
-        pp.pprint(str(f))
+        article.write(str(f))
+        time.sleep(4)
