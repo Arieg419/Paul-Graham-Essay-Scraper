@@ -1,5 +1,5 @@
-<table border="0" cellpadding="0" cellspacing="0" width="435"><tr valign="top"><td width="435"><img alt="A Plan for Spam" border="0" height="18" hspace="0" src="http://ep.yimg.com/ca/I/paulgraham_2202_11070953" vspace="0" width="129"/><br/><br/><font face="verdana" size="2"><table cellspacing="0" width="100%">
-<tr><td bgcolor="#ff9922"><img height="15" src="http://www.virtumundo.com/images/spacer.gif" width="1"/><font size="2">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr valign="top"><td width="100%"><img alt="A Plan for Spam" border="0" height="18" hspace="0" src="http://ep.yimg.com/ca/I/paulgraham_2202_11070953" vspace="0" width="129"/><br/><br/><font face="verdana" size="10"><table cellspacing="0" width="100%">
+<tr><td bgcolor="#ff9922"><img height="15" src="http://www.virtumundo.com/images/spacer.gif" width="1"/><font size="10">
 <b>Like to build things?</b> Try <a href="http://news.ycombinator.com">Hacker
 News</a>.
 </font>
@@ -79,7 +79,7 @@ tables, one for each corpus, mapping tokens to number
 of occurrences.<br/><br/>Next I create a third hash table, this time mapping
 each token to the probability that an email containing it is a spam,
 which I calculate as follows [1]:
-<font face="courier" size="2"><xmp>
+<font face="courier" size="10"><xmp>
 (let ((g (* 2 (or (gethash word good) 0)))
       (b (or (gethash word bad) 0)))
    (unless (&lt; (+ g b) 5)
@@ -117,7 +117,7 @@ the mail is spam.  If <font face="courier">probs</font>
 is a list of the fifteen individual probabilities, you
 calculate the 
 <a href="naivebayes.html">combined</a> probability thus:
-<font face="courier" size="2"><xmp>
+<font face="courier" size="10"><xmp>
 (let ((prod (apply #'* probs)))
   (/ prod (+ prod (apply #'* (mapcar #'(lambda (x) 
                                          (- 1 x))
@@ -589,7 +589,7 @@ filtering and for creating our mail infrastructure; Robert Morris,
 Trevor Blackwell and Erann Gat for many discussions about spam; Raph 
 Levien for advice about trust metrics;  and Chip Coldwell 
 and Sam Steingold for advice about statistics.<br/><br/><table cellpadding="0" cellspacing="0" width="100%">
-<tr><td bgcolor="#ffe799"><img height="15" src="http://www.virtumundo.com/images/spacer.gif" width="1"/><font size="2">
+<tr><td bgcolor="#ffe799"><img height="15" src="http://www.virtumundo.com/images/spacer.gif" width="1"/><font size="10">
 You'll find this essay and 14 others in
 <a href="http://www.amazon.com/gp/product/0596006624"><b><i>Hackers &amp; Painters</i></b></a>.</font>
 <br/><img height="5" src="http://www.virtumundo.com/images/spacer.gif" width="1"/></td><tr>
